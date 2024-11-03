@@ -1,11 +1,7 @@
 {
   "files.associations": {
-    "regex": "cpp",
-    "__split_buffer": "cpp",
-    "deque": "cpp",
-    "list": "cpp",
-    "string": "cpp",
-    "vector": "cpp",
-    "iostream": "cpp"
+    "stack": "cpp",
+    "ostream": "cpp",
+    "ios": "cpp"
   }
 }

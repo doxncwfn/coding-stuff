@@ -48,27 +48,11 @@ If there is a tie, output the stone with the lowest index.
 
 #include </Users/macbook/C++/Contests/set_up.h>
 
-pair<int, int> collide(int energy, int position, vt<bool> &has_stone)
-{
-    while (energy)
-    {
-        if (has_stone[position])
-        {
-            has_stone[position] = false;
-            has_stone[position - 1] = true;
-            energy--;
-        }
-        else
-            has_stone[position] = true;
-    }
-    return {energy, position};
-}
-
 void solve(int test_case)
 {
-    int N, goal;
-    cin >> N >> goal;
-    vt<int> energy(N);
+    int n, goal;
+    cin >> n >> goal;
+    vt<int> energy(n);
 
     int max_energy = 0;
     for (int &i : energy)
@@ -79,15 +63,22 @@ void solve(int test_case)
 
     vt<bool> has_stone(max_energy, false);
 
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < n; i++)
     {
         int remaining_energy = energy[i];
-        int position = 1;
-        for (int j = 0; j < max_energy && remaining_energy; j++)
+        int position = 0;
+        bool collide = false;
+        while (remaining_energy)
         {
-            pair<int, int> result = collide(remaining_energy, position, has_stone);
-            remaining_energy = result.first;
-            position = result.second;
+            if (has_stone[position])
+            {
+                collide = true;
+            }
+            else
+            {
+                position++;
+                remaining_energy--;
+            }
         }
     }
 
