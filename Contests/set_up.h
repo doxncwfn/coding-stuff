@@ -16,7 +16,7 @@ struct point
 {
     double x, y;
 };
-
+double Euclidian_distance(point a, point b) { return sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y)); }
 bool collinear(point a, point b, point c) { return (b.y - a.y) * (c.x - b.x) == (c.y - b.y) * (b.x - a.x); }
 
 #define FOR(i, a, b) for (int i = a; i < b; i++)
