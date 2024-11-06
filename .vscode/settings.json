@@ -5,7 +5,26 @@
     "ios": "cpp",
     "vector": "cpp",
     "string": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "__hash_table": "cpp",
+    "__split_buffer": "cpp",
+    "__tree": "cpp",
+    "array": "cpp",
+    "bitset": "cpp",
+    "deque": "cpp",
+    "initializer_list": "cpp",
+    "list": "cpp",
+    "map": "cpp",
+    "queue": "cpp",
+    "regex": "cpp",
+    "set": "cpp",
+    "string_view": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp",
+    "valarray": "cpp",
+    "iosfwd": "cpp",
+    "forward_list": "cpp",
+    "__node_handle": "cpp"
   },
   "C_Cpp.errorSquiggles": "enabled"
 }
