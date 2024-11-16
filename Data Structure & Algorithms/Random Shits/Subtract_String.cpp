@@ -1,25 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-bool smaller(string a, string b)
-{
-    if (a.length() < b.length())
-        return true;
-    else if (a.length() > b.length())
-        return false;
-    // a.length() == b.length()
-    for (int i = 0; i + 1 < a.length() && i + 1 < b.length(); i++)
-    {
-        if (a[i] < b[i])
-            return false;
-        if (a[i] > b[i])
-            return true;
-    }
-    return true;
-}
+return true;
 
 string subtract(string a, string b)
 {
+    auto smaller = [](const string& a, const string& b) -> bool
+    {
+        if (a.length() < b.length())
+            return true;
+        if (a.length() > b.length())
+            return false;
+
+        return a < b;
+    };
+
     bool negative = false;
     if (smaller(a, b))
     {

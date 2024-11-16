@@ -57,19 +57,42 @@ string decimalToBinary(int n)
     return binary;
 }
 
+string addStrings(string num1, string num2)
+{
+    reverse(num1.begin(), num1.end());
+    reverse(num2.begin(), num2.end());
+
+    string result;
+    int carry = 0;
+    for (int i = 0; i < max(num1.size(), num2.size()); i++)
+    {
+        int sum = carry;
+        if (i < num1.size())
+            sum += num1[i] - '0';
+        if (i < num2.size())
+            sum += num2[i] - '0';
+        result.push_back(sum % 10 + '0');
+        carry = sum / 10;
+    }
+
+    if (carry)
+        result.push_back(carry + '0');
+
+    reverse(result.begin(), result.end());
+
+    return result;
+}
+
 void solve(int test_case)
 {
     // DO SOMETHING
 
-    print << endl;
+    cout << endl;
 }
 
 int main()
 {
     optimize();
-
-    freopen("Input.txt", "r", stdin);
-    freopen("Output.txt", "w", stdout);
 
     int test_cases;
     cin >> test_cases;
