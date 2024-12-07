@@ -20,10 +20,12 @@
 
 using namespace std;
 
+#define debug(x) cerr << "[" << #x << "] = " << x << endl;
+#define endl '\n'
 #define print cout << "Case #" << test_case << ": "
 #define optimize() ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 #define precision(x, digit) fixed << setprecision(digit) << x
-#define endl '\n'
+#define sz(x) (int)x.size()
 
 #define MOD 1e9+7
 #define ll long long
