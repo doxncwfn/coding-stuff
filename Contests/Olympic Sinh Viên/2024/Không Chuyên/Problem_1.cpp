@@ -28,19 +28,45 @@
 #define endl '\n'
 using namespace std;
 
-void solve(int test_case)
+bool check(string s)
 {
-    // DO SOMETHING
+    int n = s.length();
+    for (int i = 0; i < n / 2; ++i)
+        if (s[i] != s[n / 2 + i])
+            return false;
+
+    return true;
 }
 
 int main()
 {
     optimize();
 
-    int t;
-    cin >> t;
-    for (int i = 1; i <= t; i++)
-        solve(i);
+    int n;
+    string z;
+    cin >> n >> z;
+
+    if (n % 2 == 0)
+        cout << "No Solution";
+    else
+    {
+        int s = (n - 1) / 2;
+        vector<string> result;
+        string temp;
+        for (int i = 0; i < n; i++)
+        {
+            string tmp = z.substr(0, i) + z.substr(i + 1, n - i - 1);
+            if (check(tmp))
+                result.push_back(tmp.substr(0, s));
+        }
+
+        if (result.empty())
+            cout << "No Solution";
+        else if (sz(result) == 1)
+            cout << result[0];
+        else
+            cout << "Multiple Solutions";
+    }
 
     return 0;
 }

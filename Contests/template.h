@@ -28,19 +28,9 @@
 #define endl '\n'
 using namespace std;
 
-void solve(int test_case)
-{
-    // DO SOMETHING
-}
-
 int main()
 {
     optimize();
-
-    int t;
-    cin >> t;
-    for (int i = 1; i <= t; i++)
-        solve(i);
 
     return 0;
 }

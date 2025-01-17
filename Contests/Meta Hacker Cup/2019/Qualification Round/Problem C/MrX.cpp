@@ -175,11 +175,104 @@ string multiply(string a, string b)
     return resultStr.empty() ? "0" : resultStr;
 }
 
+int calculate(const string &expr, int &pos)
+{
+    int result = 0;
+    char op = 0;
+
+    while (pos < expr.size())
+    {
+        char ch = expr[pos];
+
+        if (isdigit(ch))
+        {
+            int value = ch - '0';
+            pos++;
+
+            if (op == 0)
+                result = value;
+            else
+                switch (op)
+                {
+                case '^':
+                    result ^= value;
+                    break;
+                case '&':
+                    result &= value;
+                    break;
+                case '|':
+                    result |= value;
+                    break;
+                }
+            op = 0;
+        }
+        else if (ch == '(')
+        {
+            pos++;
+            int subResult = calculate(expr, pos);
+
+            if (op == 0)
+                result = subResult;
+            else
+                switch (op)
+                {
+                case '^':
+                    result ^= subResult;
+                    break;
+                case '&':
+                    result &= subResult;
+                    break;
+                case '|':
+                    result |= subResult;
+                    break;
+                }
+            op = 0;
+        }
+        else if (ch == ')')
+        {
+            pos++;
+            break;
+        }
+        else if (ch == '^' || ch == '&' || ch == '|')
+        {
+            op = ch;
+            pos++;
+        }
+        else
+            pos++;
+    }
+
+    return result;
+}
+
 void solve(int test_case)
 {
-    // DO SOMETHING
+    string s;
+    cin >> s;
 
-    print << endl;
+    print << (s == "1" || s == "0" ? "0" : "1") << endl;
+
+    string s0 = "", s1 = "";
+    for (char c : s)
+    {
+        if (c == 'x')
+        {
+            s0 += "0";
+            s1 += "1";
+        }
+        else if (c == 'X')
+        {
+            s0 += "1";
+            s1 += "0";
+        }
+        else
+        {
+            s0 += c;
+            s1 += c;
+        }
+    }
+
+    print << (calculate(s0, 0) == calculate(s1, 0) ? "0" : "1") << endl;
 }
 
 int main()

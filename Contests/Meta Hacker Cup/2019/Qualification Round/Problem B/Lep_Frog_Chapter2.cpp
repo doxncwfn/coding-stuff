@@ -177,17 +177,21 @@ string multiply(string a, string b)
 
 void solve(int test_case)
 {
-    // DO SOMETHING
+    string s;
+    cin >> s;
+    int frogs = 0;
+    for (char c : s)
+        frogs += c == 'B';
 
-    print << endl;
+    print << (min(2, sz(s) / 2) <= frogs && frogs <= sz(s) - 2 ? "Y" : "N") << endl;
 }
 
 int main()
 {
     optimize();
 
-    freopen("Input.txt", "r", stdin);
-    freopen("Output.txt", "w", stdout);
+    freopen("Leapfrog CH2 Input - Meta Hacker Cup 2019.txt", "r", stdin);
+    freopen("Leapfrog CH2 Output - Meta Hacker Cup 2019.txt", "w", stdout);
 
     int t;
     cin >> t;

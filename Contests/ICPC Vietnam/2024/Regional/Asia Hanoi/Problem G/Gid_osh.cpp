@@ -23,24 +23,37 @@
     ios_base::sync_with_stdio(0); \
     cin.tie(0);                   \
     cout.tie(0);
-#define sz(x) (int)x.size()
 #define precision(x, digit) fixed << setprecision(digit) << x
 #define endl '\n'
 using namespace std;
 
 void solve(int test_case)
 {
-    // DO SOMETHING
+    int n;
+    cin >> n;
+
+    vector<int> pitches(n);
+    for (int &x : pitches)
+        cin >> x;
+
+    if (n == 2)
+    {
+        cout << 0 << endl;
+        return;
+    }
+
+    sort(pitches.begin(), pitches.end());
+    cout << min(pitches[n - 2] - pitches[0], pitches[n - 1] - pitches[1]) << endl;
 }
 
 int main()
 {
     optimize();
 
-    int t;
-    cin >> t;
-    for (int i = 1; i <= t; i++)
-        solve(i);
+    int test_cases;
+    cin >> test_cases;
+    for (int test_case = 1; test_case <= test_cases; test_case++)
+        solve(test_case);
 
     return 0;
 }

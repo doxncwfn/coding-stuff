@@ -28,19 +28,29 @@
 #define endl '\n'
 using namespace std;
 
-void solve(int test_case)
+vector<long long> sieve(long long n)
 {
-    // DO SOMETHING
+    vector<long long> primes;
+    vector<bool> is_prime(n + 1, true);
+    is_prime[0] = is_prime[1] = false;
+    for (long long i = 2; i <= (long long)sqrt(n); i++)
+        if (is_prime[i])
+        {
+            primes.push_back(i);
+            for (long long j = i * i; j <= n; j += i)
+                is_prime[j] = false;
+        }
+    return primes;
 }
 
 int main()
 {
     optimize();
 
-    int t;
-    cin >> t;
-    for (int i = 1; i <= t; i++)
-        solve(i);
+    long long n;
+    int k;
+    cin >> n >> k;
+    vector<long long> primes = sieve(n);
 
     return 0;
 }
