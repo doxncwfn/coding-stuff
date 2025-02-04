@@ -3,6 +3,10 @@
     "*.rmd": "markdown",
     "queue": "cpp",
     "stack": "cpp",
-    "random": "cpp"
+    "random": "cpp",
+    "vector": "cpp",
+    "string": "cpp",
+    "format": "cpp",
+    "sstream": "cpp"
   }
 }
