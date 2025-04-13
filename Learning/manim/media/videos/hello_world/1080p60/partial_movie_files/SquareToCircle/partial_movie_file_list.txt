@@ -1,4 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/macbook/Coding Stuff/Learning/manim/media/videos/hello_world/1080p60/partial_movie_files/SquareToCircle/3977891868_1063976082_223132457.mp4'
-file 'file:/Users/macbook/Coding Stuff/Learning/manim/media/videos/hello_world/1080p60/partial_movie_files/SquareToCircle/2852726489_491852211_3256495558.mp4'
-file 'file:/Users/macbook/Coding Stuff/Learning/manim/media/videos/hello_world/1080p60/partial_movie_files/SquareToCircle/2852726489_248149174_3256495558.mp4'

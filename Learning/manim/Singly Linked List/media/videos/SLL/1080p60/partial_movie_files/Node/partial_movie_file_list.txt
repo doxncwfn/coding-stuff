@@ -1,0 +1,5 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/macbook/Coding Stuff/Learning/manim/Singly Linked List/media/videos/SLL/1080p60/partial_movie_files/Node/3977891868_1680354565_223132457.mp4'
+file 'file:/Users/macbook/Coding Stuff/Learning/manim/Singly Linked List/media/videos/SLL/1080p60/partial_movie_files/Node/2852726489_3382434420_672452318.mp4'
+file 'file:/Users/macbook/Coding Stuff/Learning/manim/Singly Linked List/media/videos/SLL/1080p60/partial_movie_files/Node/2852726489_605181059_1874796041.mp4'
+file 'file:/Users/macbook/Coding Stuff/Learning/manim/Singly Linked List/media/videos/SLL/1080p60/partial_movie_files/Node/2852726489_1839128356_3350395682.mp4'

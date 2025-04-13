@@ -1,0 +1,9 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/macbook/Coding Stuff/Learning/manim/Testing/media/videos/hello_world/1080p60/partial_movie_files/MovingFrameBox/3977891868_794583257_223132457.mp4'
+file 'file:/Users/macbook/Coding Stuff/Learning/manim/Testing/media/videos/hello_world/1080p60/partial_movie_files/MovingFrameBox/2852726489_1420869240_1869793800.mp4'
+file 'file:/Users/macbook/Coding Stuff/Learning/manim/Testing/media/videos/hello_world/1080p60/partial_movie_files/MovingFrameBox/2852726489_1754310298_3466229321.mp4'
+file 'file:/Users/macbook/Coding Stuff/Learning/manim/Testing/media/videos/hello_world/1080p60/partial_movie_files/MovingFrameBox/2852726489_966719605_4261021080.mp4'
+file 'file:/Users/macbook/Coding Stuff/Learning/manim/Testing/media/videos/hello_world/1080p60/partial_movie_files/MovingFrameBox/2852726489_1754310298_601638970.mp4'
+file 'file:/Users/macbook/Coding Stuff/Learning/manim/Testing/media/videos/hello_world/1080p60/partial_movie_files/MovingFrameBox/2852726489_810722397_2103457277.mp4'
+file 'file:/Users/macbook/Coding Stuff/Learning/manim/Testing/media/videos/hello_world/1080p60/partial_movie_files/MovingFrameBox/2852726489_1754310298_2482896058.mp4'
+file 'file:/Users/macbook/Coding Stuff/Learning/manim/Testing/media/videos/hello_world/1080p60/partial_movie_files/MovingFrameBox/2852726489_2712506153_898747543.mp4'
