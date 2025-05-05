@@ -107,7 +107,8 @@ class Geometry(Scene):
         BD = Line(point_B.get_center(), point_D.get_center(), color = WHITE)
         point_I = Dot((point_B.get_center() + point_D.get_center())/2, color=WHITE)
         label_I = MathTex("I").next_to(point_I, DOWN/2 + RIGHT/2).scale(0.8)
-        self.play(Create(BD), Create(point_I), Write(label_I))
+        self.play(Create(BD))
+        self.play(Create(point_I), Write(label_I))
         A_perp = Line(point_A.get_center(), BD.get_projection(point_A.get_center()), color=WHITE)
         B_perp = Line(point_B.get_center(), DA.get_projection(point_B.get_center()), color=WHITE)
         D_perp = Line(point_D.get_center(), AB.get_projection(point_D.get_center()), color=WHITE)
@@ -125,7 +126,7 @@ class Geometry(Scene):
                   FadeOut(angle_perpA), FadeOut(angle_perpB), FadeOut(angle_perpD),
                   label_H.animate.move_to(point_H.get_center() + UP/3 + LEFT/3))
         point_E = Dot(line_circle_intersection(Line(point_A.get_center(), point_I.get_center()), circle_O)[0], color=WHITE)
-        label_E = MathTex("E").next_to(point_E, DOWN/2 + LEFT/2).scale(0.8)
+        label_E = MathTex("E").next_to(point_E, DOWN/2 + RIGHT/2).scale(0.8)
         AE = Line(point_A.get_center(), point_E.get_center(), color=WHITE)
         self.play(Create(AE))
         self.play(Create(point_E), Write(label_E))
@@ -154,4 +155,54 @@ class Geometry(Scene):
         self.wait(1)
         self.play(FadeOut(eq1))
         
+        self.wait(0.5)
+        
+        p_F = Dot(line_circle_intersection(Line(point_K.get_center(), BD.get_projection(point_K.get_center())), circle_O)[0])
+        l_F = MathTex("F").next_to(p_F, DOWN/2 + LEFT/2).scale(0.8)
+        AF = Line(point_A.get_center(), p_F.get_center(), color=WHITE)
+        angle_BAF = Angle(AB, AF, radius=1.2, color=WHITE, quadrant=(1,1))
+        angle_DAE = Angle(AE, DA, radius=1, color=WHITE, quadrant=(1,-1))
+        self.play(Create(AF), Create(angle_DAE), Create(angle_BAF))
+        self.play(Create(p_F), Write(l_F))
+        self.wait(0.5)
+        self.play(FadeOut(angle_BAF), FadeOut(angle_DAE))
+        KF = Line(point_K.get_center(), p_F.get_center(), color=RED)
+        rangle_tmp = RightAngle(KF, BD, length=0.3, color=RED, quadrant=(-1,-1))
+        self.play(Create(KF), Create(rangle_tmp))
+        self.play(FadeOut(rangle_tmp), FadeOut(KF))
+        # Calculate the angle bisector of ∠BAD
+        v_AB = point_B.get_center() - point_A.get_center()
+        v_AD = point_D.get_center() - point_A.get_center()
+        unit_AB = v_AB / np.linalg.norm(v_AB)
+        unit_AD = v_AD / np.linalg.norm(v_AD)
+        # Calculate the direction of the angle bisector
+        bisector_direction = unit_AB + unit_AD
+        bisector_direction /= np.linalg.norm(bisector_direction)
+        # Define a point on the angle bisector
+        bi_tmp = point_A.get_center() + 3 * bisector_direction  # Scale for length
+        # Extend the angle bisector to intersect BD
+        p_P = Dot(line_intersection([point_A.get_center(), bi_tmp], [point_B.get_center(), point_D.get_center()]))
+        AP = Line(point_A.get_center(), p_P.get_center(), color=WHITE)
+        KP = Line(point_K.get_center(), p_P.get_center(), color=WHITE)
+        angle_BAP = Angle(AB, AP, radius=1.2, color=WHITE, quadrant=(1,1))
+        angle_DAP = Angle(AP, DA, radius=1, color=WHITE, quadrant=(1,-1))
+        BK = Line(point_B.get_center(), point_K.get_center(), color=WHITE)
+        DK = Line(point_D.get_center(), point_K.get_center(), color=WHITE)
+        angle_DKP = Angle(KP, DK, radius=0.4, color=WHITE, quadrant=(1,-1))
+        angle_BKP = Angle(BK, KP, radius=0.5, color=WHITE, quadrant=(-1,1))
+
+        
+        self.play(Create(BK), Create(DK))
+        self.play(Create(AP), Create(angle_BAP), Create(angle_DAP))
+        self.play(Create(KP), Create(angle_BKP), Create(angle_DKP))
+        l_P = MathTex("P").next_to(p_P, DOWN, buff=0.1).scale(0.8)
+        self.play(Create(p_P), Write(l_P))
+        self.play(FadeOut(angle_BAP), FadeOut(angle_DAP))
+        self.play(FadeOut(angle_BKP), FadeOut(angle_DKP))
+        
+        self.play(point_B.animate.set_color(RED), point_D.animate.set_color(RED), p_P.animate.set_color(RED),
+                  label_B.animate.set_color(RED), label_D.animate.set_color(RED), l_P.animate.set_color(RED))
+        self.wait(1)
+        self.play(point_B.animate.set_color(WHITE), point_D.animate.set_color(WHITE), p_P.animate.set_color(WHITE),
+                  label_B.animate.set_color(WHITE), label_D.animate.set_color(WHITE), l_P.animate.set_color(WHITE))
         self.wait(0.5)
